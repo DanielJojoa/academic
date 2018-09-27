@@ -11,9 +11,10 @@ class JwtAuth
         $this->manager = $manager;
         $this->key = "holaquetalsoylaclavesecreta12345";
     } 
-    public function signup($email,$password, $getHash = null)
-    {   $user = $this->manager->getRepository('BackendBundle:User')->findOneBy(array(
-        "email" => $email,
+    public function signup($iduser,$password, $getHash = null)
+    {   
+         $user = $this->manager->getRepository('BackendBundle:User')->findOneBy(array(
+        "id_user" => $iduser,
         "password" =>$password
     ));
     $signup  = false;
@@ -24,11 +25,12 @@ class JwtAuth
         if ($signup == true)
         {   
             $token = array(
-                "sub" => $user->getId(),
-                "email" => $user->getEmail(),
+                "id_user" => $user->getIdUser(),
                 "name" => $user->getName(),
-                "surname" => $user->getSurname(),
-                "iat" => time(),
+                "rol" => $user->getRol(),
+                "lastname" => $user->getLastname(),
+                "mail" => $user->getMail(),
+                "cod_int_usr" => $user->getCodIntUsr(),
                 "exp" => time()+(7*24*60*60)
 
             );
@@ -65,7 +67,7 @@ class JwtAuth
         {
             $auth = false;
         }
-        if(isset($decoded) && is_object($decoded) && isset($decoded->sub)){
+        if(isset($decoded) && is_object($decoded) && isset($decoded->mail)){
             $auth = true;
         }
         else{

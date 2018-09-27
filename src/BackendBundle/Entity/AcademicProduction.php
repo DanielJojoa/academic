@@ -3,24 +3,24 @@
 namespace BackendBundle\Entity;
 
 /**
- * Event
+ * AcademicProduction
  */
-class Event
+class AcademicProduction
 {
     /**
      * @var integer
      */
-    private $idEvent;
-
-    /**
-     * @var string
-     */
-    private $nameEvent;
+    private $idAcademicProduction;
 
     /**
      * @var integer
      */
-    private $idTypeEvent;
+    private $typeAcademicProd;
+
+    /**
+     * @var string
+     */
+    private $nameAcademicProd;
 
     /**
      * @var string
@@ -34,61 +34,61 @@ class Event
 
 
     /**
-     * Get idEvent
+     * Get idAcademicProduction
      *
      * @return integer
      */
-    public function getIdEvent()
+    public function getIdAcademicProduction()
     {
-        return $this->idEvent;
+        return $this->idAcademicProduction;
     }
 
     /**
-     * Set nameEvent
+     * Set typeAcademicProd
      *
-     * @param string $nameEvent
+     * @param integer $typeAcademicProd
      *
-     * @return Event
+     * @return AcademicProduction
      */
-    public function setNameEvent($nameEvent)
+    public function setTypeAcademicProd($typeAcademicProd)
     {
-        $this->nameEvent = $nameEvent;
+        $this->typeAcademicProd = $typeAcademicProd;
 
         return $this;
     }
 
     /**
-     * Get nameEvent
+     * Get typeAcademicProd
+     *
+     * @return integer
+     */
+    public function getTypeAcademicProd()
+    {
+        return $this->typeAcademicProd;
+    }
+
+    /**
+     * Set nameAcademicProd
+     *
+     * @param string $nameAcademicProd
+     *
+     * @return AcademicProduction
+     */
+    public function setNameAcademicProd($nameAcademicProd)
+    {
+        $this->nameAcademicProd = $nameAcademicProd;
+
+        return $this;
+    }
+
+    /**
+     * Get nameAcademicProd
      *
      * @return string
      */
-    public function getNameEvent()
+    public function getNameAcademicProd()
     {
-        return $this->nameEvent;
-    }
-
-    /**
-     * Set idTypeEvent
-     *
-     * @param integer $idTypeEvent
-     *
-     * @return Event
-     */
-    public function setIdTypeEvent($idTypeEvent)
-    {
-        $this->idTypeEvent = $idTypeEvent;
-
-        return $this;
-    }
-
-    /**
-     * Get idTypeEvent
-     *
-     * @return integer
-     */
-    public function getIdTypeEvent()
-    {
-        return $this->idTypeEvent;
+        return $this->nameAcademicProd;
     }
 
     /**
@@ -96,7 +96,7 @@ class Event
      *
      * @param string $idUser
      *
-     * @return Event
+     * @return AcademicProduction
      */
     public function setIdUser($idUser)
     {
@@ -120,7 +120,7 @@ class Event
      *
      * @param \DateTime $date
      *
-     * @return Event
+     * @return AcademicProduction
      */
     public function setDate($date)
     {

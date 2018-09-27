@@ -1,37 +1,34 @@
-BackendBundle\Entity\Event:
+BackendBundle\Entity\AcademicProduction:
     type: entity
-    table: event
+    table: academic_production
     indexes:
-        id_type_event:
-            columns:
-                - id_type_event
         id_user:
             columns:
                 - id_user
     id:
-        idEvent:
+        idAcademicProduction:
             type: integer
             nullable: false
             options:
                 unsigned: false
             id: true
-            column: id_event
+            column: id_academic_production
             generator:
                 strategy: IDENTITY
     fields:
-        nameEvent:
-            type: string
-            nullable: false
-            length: 100
-            options:
-                fixed: false
-            column: name_event
-        idTypeEvent:
+        typeAcademicProd:
             type: integer
             nullable: false
             options:
                 unsigned: false
-            column: id_type_event
+            column: type_academic_prod
+        nameAcademicProd:
+            type: string
+            nullable: false
+            length: 150
+            options:
+                fixed: false
+            column: name_academic_prod
         idUser:
             type: string
             nullable: false

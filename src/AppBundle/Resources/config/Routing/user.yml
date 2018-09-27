@@ -1,0 +1,4 @@
+default_login:
+    path: /new
+    defaults: { _controller: "AppBundle:User:new"}
+    methods: POST

@@ -2,21 +2,21 @@ BackendBundle\Entity\TypeEvent:
     type: entity
     table: type_event
     id:
-        nameTypeeve:
+        idTypeEvent:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_type_event
+            generator:
+                strategy: IDENTITY
+    fields:
+        nameEvent:
             type: string
             nullable: false
             length: 50
             options:
                 fixed: false
-            id: true
-            column: name_typeeve
-            generator:
-                strategy: IDENTITY
-    fields:
-        codTypeeve:
-            type: integer
-            nullable: false
-            options:
-                unsigned: true
-            column: cod_typeeve
+            column: name_event
     lifecycleCallbacks: {  }

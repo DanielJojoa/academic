@@ -7,6 +7,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use AppBundle\Services\Helpers;
+use AppBundle\Services\JwtAuth;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class DefaultController extends Controller
 {
@@ -31,10 +33,25 @@ class DefaultController extends Controller
         $json = $request->get('json',null);
         $data = array('status'=> 'error', 'data'=> 'Send data via Post');
         if($json) {
-
-        } else {
-
-        }
-        return $data;
+            $params = json_decode($json);
+            $idUser =(isset($params->iduser)) ? $params->iduser:null;
+            $password =(isset($params->password)) ? $params->password:null;
+            $getHash =(isset($params->getHash)) ? $params->getHash:null;
+            if( $idUser != null && $password != null) {
+                $jwt_auth = $this->get(Jwt::Class);
+                if ($getHash == null) {
+                    $data = $jwt_auth($idUser,$password);
+                } else {
+                    $data = $jwt_auth($idUser,$password,true);
+                }
+            } else {
+                $data = array(
+                      'status' =>'error',
+                       'data' =>'Password or user  is wrong'
+                
+                            );
+            }
+        } 
+        return $helper->json($data);
     } 
 }

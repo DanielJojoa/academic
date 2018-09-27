@@ -1,22 +1,22 @@
-BackendBundle\Entity\TypeProduc:
+BackendBundle\Entity\TypeAcademicProd:
     type: entity
-    table: type_produc
+    table: type_academic_prod
     id:
-        codTypepro:
+        idTypeAcademicProd:
             type: integer
             nullable: false
             options:
-                unsigned: true
+                unsigned: false
             id: true
-            column: cod_typepro
+            column: id_type_academic_prod
             generator:
                 strategy: IDENTITY
     fields:
-        nameTypepro:
+        nomTypeEvent:
             type: string
-            nullable: true
+            nullable: false
             length: 100
             options:
                 fixed: false
-            column: name_typepro
+            column: nom_type_event
     lifecycleCallbacks: {  }

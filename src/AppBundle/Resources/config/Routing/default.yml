@@ -10,4 +10,8 @@ default_pruebas:
 default_login:
     path: /login
     defaults: { _controller: "AppBundle:Default:login"}
-    methods: GET
+    methods: POST
+default_new:
+    path: /new
+    defaults: { _controller: "AppBundle:User:new"}
+    methods: POST

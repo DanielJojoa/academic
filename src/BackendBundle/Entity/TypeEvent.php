@@ -8,48 +8,48 @@ namespace BackendBundle\Entity;
 class TypeEvent
 {
     /**
-     * @var string
-     */
-    private $nameTypeeve;
-
-    /**
      * @var integer
      */
-    private $codTypeeve;
+    private $idTypeEvent;
+
+    /**
+     * @var string
+     */
+    private $nameEvent;
 
 
     /**
-     * Get nameTypeeve
+     * Get idTypeEvent
      *
-     * @return string
+     * @return integer
      */
-    public function getNameTypeeve()
+    public function getIdTypeEvent()
     {
-        return $this->nameTypeeve;
+        return $this->idTypeEvent;
     }
 
     /**
-     * Set codTypeeve
+     * Set nameEvent
      *
-     * @param integer $codTypeeve
+     * @param string $nameEvent
      *
      * @return TypeEvent
      */
-    public function setCodTypeeve($codTypeeve)
+    public function setNameEvent($nameEvent)
     {
-        $this->codTypeeve = $codTypeeve;
+        $this->nameEvent = $nameEvent;
 
         return $this;
     }
 
     /**
-     * Get codTypeeve
+     * Get nameEvent
      *
-     * @return integer
+     * @return string
      */
-    public function getCodTypeeve()
+    public function getNameEvent()
     {
-        return $this->codTypeeve;
+        return $this->nameEvent;
     }
 }
 

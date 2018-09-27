@@ -1,0 +1,12 @@
+[{
+    "iduser": "12324",
+    "email": "prueba@prueba.com",
+    "name": "name p",
+    "lname": "jojoa",
+    "rol": "1",
+    "password": "asdf"
+} ,
+{
+    "iduser": "12324",
+    "password": "asdf"
+}]

@@ -10,46 +10,46 @@ class Rol
     /**
      * @var integer
      */
-    private $codRol;
+    private $idrol;
 
     /**
      * @var string
      */
-    private $nomRol;
+    private $namerol;
 
 
     /**
-     * Get codRol
+     * Get idrol
      *
      * @return integer
      */
-    public function getCodRol()
+    public function getIdrol()
     {
-        return $this->codRol;
+        return $this->idrol;
     }
 
     /**
-     * Set nomRol
+     * Set namerol
      *
-     * @param string $nomRol
+     * @param string $namerol
      *
      * @return Rol
      */
-    public function setNomRol($nomRol)
+    public function setNamerol($namerol)
     {
-        $this->nomRol = $nomRol;
+        $this->namerol = $namerol;
 
         return $this;
     }
 
     /**
-     * Get nomRol
+     * Get namerol
      *
      * @return string
      */
-    public function getNomRol()
+    public function getNamerol()
     {
-        return $this->nomRol;
+        return $this->namerol;
     }
 }
 

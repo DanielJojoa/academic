@@ -1,73 +1,62 @@
 BackendBundle\Entity\User:
     type: entity
-    table: users
+    table: user
     indexes:
-        users_FKIndex1:
+        id_user:
             columns:
-                - cod_rol
+                - id_user
+        rol:
+            columns:
+                - rol
+    uniqueConstraints:
+        id_user_2:
+            columns:
+                - id_user
     id:
-        codUsr:
+        idIntUsr:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_int_usr
+            generator:
+                strategy: IDENTITY
+    fields:
+        password:
+            type: string
+            nullable: false
+            length: 250
+            options:
+                fixed: false
+        idUser:
             type: string
             nullable: false
             length: 10
             options:
                 fixed: false
-            id: true
-            column: cod_usr
-            generator:
-                strategy: IDENTITY
-    fields:
-        passUsr:
+            column: id_user
+        name:
             type: string
             nullable: false
-            length: 200
-            options:
-                fixed: false
-            column: pass_usr
-        nameUsr:
-            type: string
-            nullable: true
-            length: 50
-            options:
-                fixed: false
-            column: name_usr
-        lnameUsr:
-            type: string
-            nullable: true
-            length: 50
-            options:
-                fixed: false
-            column: lname_usr
-        photoUsr:
-            type: text
-            nullable: true
-            length: 65535
-            options:
-                fixed: false
-            column: photo_usr
-        mailUsr:
-            type: string
-            nullable: true
             length: 100
             options:
                 fixed: false
-            column: mail_usr
-        addressUsr:
+        lastname:
             type: string
-            nullable: true
-            length: 100
+            nullable: false
+            length: 50
             options:
                 fixed: false
-            column: address_usr
-    manyToOne:
-        codRol:
-            targetEntity: Rol
-            cascade: {  }
-            fetch: LAZY
-            mappedBy: null
-            inversedBy: null
-            joinColumns:
-                cod_rol:
-                    referencedColumnName: cod_rol
-            orphanRemoval: false
+        mail:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+        rol:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
     lifecycleCallbacks: {  }

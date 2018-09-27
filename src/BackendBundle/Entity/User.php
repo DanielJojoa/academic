@@ -8,222 +8,193 @@ namespace BackendBundle\Entity;
 class User
 {
     /**
-     * @var string
+     * @var integer
      */
-    private $codUsr;
+    private $idIntUsr;
 
     /**
      * @var string
      */
-    private $passUsr;
+    private $password;
 
     /**
      * @var string
      */
-    private $nameUsr;
+    private $idUser;
 
     /**
      * @var string
      */
-    private $lnameUsr;
+    private $name;
 
     /**
      * @var string
      */
-    private $photoUsr;
+    private $lastname;
 
     /**
      * @var string
      */
-    private $mailUsr;
+    private $mail;
 
     /**
-     * @var string
+     * @var integer
      */
-    private $addressUsr;
-
-    /**
-     * @var \BackendBundle\Entity\Rol
-     */
-    private $codRol;
+    private $rol;
 
 
     /**
-     * Get codUsr
+     * Get idIntUsr
      *
-     * @return string
+     * @return integer
      */
-    public function getCodUsr()
+    public function getIdIntUsr()
     {
-        return $this->codUsr;
+        return $this->idIntUsr;
     }
 
     /**
-     * Set passUsr
+     * Set password
      *
-     * @param string $passUsr
+     * @param string $password
      *
      * @return User
      */
-    public function setPassUsr($passUsr)
+    public function setPassword($password)
     {
-        $this->passUsr = $passUsr;
+        $this->password = $password;
 
         return $this;
     }
 
     /**
-     * Get passUsr
+     * Get password
      *
      * @return string
      */
-    public function getPassUsr()
+    public function getPassword()
     {
-        return $this->passUsr;
+        return $this->password;
     }
 
     /**
-     * Set nameUsr
+     * Set idUser
      *
-     * @param string $nameUsr
+     * @param string $idUser
      *
      * @return User
      */
-    public function setNameUsr($nameUsr)
+    public function setIdUser($idUser)
     {
-        $this->nameUsr = $nameUsr;
+        $this->idUser = $idUser;
 
         return $this;
     }
 
     /**
-     * Get nameUsr
+     * Get idUser
      *
      * @return string
      */
-    public function getNameUsr()
+    public function getIdUser()
     {
-        return $this->nameUsr;
+        return $this->idUser;
     }
 
     /**
-     * Set lnameUsr
+     * Set name
      *
-     * @param string $lnameUsr
+     * @param string $name
      *
      * @return User
      */
-    public function setLnameUsr($lnameUsr)
+    public function setName($name)
     {
-        $this->lnameUsr = $lnameUsr;
+        $this->name = $name;
 
         return $this;
     }
 
     /**
-     * Get lnameUsr
+     * Get name
      *
      * @return string
      */
-    public function getLnameUsr()
+    public function getName()
     {
-        return $this->lnameUsr;
+        return $this->name;
     }
 
     /**
-     * Set photoUsr
+     * Set lastname
      *
-     * @param string $photoUsr
+     * @param string $lastname
      *
      * @return User
      */
-    public function setPhotoUsr($photoUsr)
+    public function setLastname($lastname)
     {
-        $this->photoUsr = $photoUsr;
+        $this->lastname = $lastname;
 
         return $this;
     }
 
     /**
-     * Get photoUsr
+     * Get lastname
      *
      * @return string
      */
-    public function getPhotoUsr()
+    public function getLastname()
     {
-        return $this->photoUsr;
+        return $this->lastname;
     }
 
     /**
-     * Set mailUsr
+     * Set mail
      *
-     * @param string $mailUsr
+     * @param string $mail
      *
      * @return User
      */
-    public function setMailUsr($mailUsr)
+    public function setMail($mail)
     {
-        $this->mailUsr = $mailUsr;
+        $this->mail = $mail;
 
         return $this;
     }
 
     /**
-     * Get mailUsr
+     * Get mail
      *
      * @return string
      */
-    public function getMailUsr()
+    public function getMail()
     {
-        return $this->mailUsr;
+        return $this->mail;
     }
 
     /**
-     * Set addressUsr
+     * Set rol
      *
-     * @param string $addressUsr
+     * @param integer $rol
      *
      * @return User
      */
-    public function setAddressUsr($addressUsr)
+    public function setRol($rol)
     {
-        $this->addressUsr = $addressUsr;
+        $this->rol = $rol;
 
         return $this;
     }
 
     /**
-     * Get addressUsr
+     * Get rol
      *
-     * @return string
+     * @return integer
      */
-    public function getAddressUsr()
+    public function getRol()
     {
-        return $this->addressUsr;
-    }
-
-    /**
-     * Set codRol
-     *
-     * @param \BackendBundle\Entity\Rol $codRol
-     *
-     * @return User
-     */
-    public function setCodRol(\BackendBundle\Entity\Rol $codRol = null)
-    {
-        $this->codRol = $codRol;
-
-        return $this;
-    }
-
-    /**
-     * Get codRol
-     *
-     * @return \BackendBundle\Entity\Rol
-     */
-    public function getCodRol()
-    {
-        return $this->codRol;
+        return $this->rol;
     }
 }
 

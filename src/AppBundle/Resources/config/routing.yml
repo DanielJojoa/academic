@@ -1,3 +1,6 @@
 app_default:
     resource: "@AppBundle/Resources/config/Routing/default.yml"
     prefix: /
+app_default:
+    resource: "@AppBundle/Resources/config/Routing/user.yml"
+    prefix: /user
