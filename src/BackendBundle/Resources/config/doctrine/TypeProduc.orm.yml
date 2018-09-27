@@ -1,0 +1,22 @@
+BackendBundle\Entity\TypeProduc:
+    type: entity
+    table: type_produc
+    id:
+        codTypepro:
+            type: integer
+            nullable: false
+            options:
+                unsigned: true
+            id: true
+            column: cod_typepro
+            generator:
+                strategy: IDENTITY
+    fields:
+        nameTypepro:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+            column: name_typepro
+    lifecycleCallbacks: {  }

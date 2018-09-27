@@ -1,0 +1,22 @@
+BackendBundle\Entity\Rol:
+    type: entity
+    table: roles
+    id:
+        codRol:
+            type: integer
+            nullable: false
+            options:
+                unsigned: true
+            id: true
+            column: cod_rol
+            generator:
+                strategy: IDENTITY
+    fields:
+        nomRol:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+            column: nom_rol
+    lifecycleCallbacks: {  }

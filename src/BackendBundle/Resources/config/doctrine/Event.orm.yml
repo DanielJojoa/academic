@@ -1,0 +1,58 @@
+BackendBundle\Entity\Event:
+    type: entity
+    table: events
+    indexes:
+        events_FKIndex1:
+            columns:
+                - name_typeeve
+    id:
+        codEve:
+            type: integer
+            nullable: false
+            options:
+                unsigned: true
+            id: true
+            column: cod_eve
+            generator:
+                strategy: IDENTITY
+    fields:
+        nameEve:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+            column: name_eve
+        addressEve:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+            column: address_eve
+        datestartEve:
+            type: date
+            nullable: true
+            column: datestart_eve
+        dateendEve:
+            type: date
+            nullable: true
+            column: dateend_eve
+        valueEve:
+            type: integer
+            nullable: true
+            options:
+                unsigned: true
+            column: value_eve
+    manyToOne:
+        nameTypeeve:
+            targetEntity: TypeEvent
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                name_typeeve:
+                    referencedColumnName: name_typeeve
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

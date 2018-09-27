@@ -1,0 +1,22 @@
+BackendBundle\Entity\LevelEduc:
+    type: entity
+    table: level_educ
+    id:
+        codLevel:
+            type: integer
+            nullable: false
+            options:
+                unsigned: true
+            id: true
+            column: cod_level
+            generator:
+                strategy: IDENTITY
+    fields:
+        nameLevel:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+            column: name_level
+    lifecycleCallbacks: {  }

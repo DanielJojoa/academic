@@ -1,0 +1,73 @@
+BackendBundle\Entity\User:
+    type: entity
+    table: users
+    indexes:
+        users_FKIndex1:
+            columns:
+                - cod_rol
+    id:
+        codUsr:
+            type: string
+            nullable: false
+            length: 10
+            options:
+                fixed: false
+            id: true
+            column: cod_usr
+            generator:
+                strategy: IDENTITY
+    fields:
+        passUsr:
+            type: string
+            nullable: false
+            length: 200
+            options:
+                fixed: false
+            column: pass_usr
+        nameUsr:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+            column: name_usr
+        lnameUsr:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+            column: lname_usr
+        photoUsr:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: photo_usr
+        mailUsr:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+            column: mail_usr
+        addressUsr:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+            column: address_usr
+    manyToOne:
+        codRol:
+            targetEntity: Rol
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                cod_rol:
+                    referencedColumnName: cod_rol
+            orphanRemoval: false
+    lifecycleCallbacks: {  }
