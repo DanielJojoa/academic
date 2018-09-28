@@ -37,12 +37,14 @@ class DefaultController extends Controller
             $idUser =(isset($params->iduser)) ? $params->iduser:null;
             $password =(isset($params->password)) ? $params->password:null;
             $getHash =(isset($params->getHash)) ? $params->getHash:null;
+            
+            $pwd = hash('sha256',$password);
             if( $idUser != null && $password != null) {
-                $jwt_auth = $this->get(Jwt::Class);
+                $jwt_auth = $this->get(JwtAuth::Class);
                 if ($getHash == null) {
-                    $data = $jwt_auth($idUser,$password);
+                    $data = $jwt_auth->signup($idUser,$pwd);
                 } else {
-                    $data = $jwt_auth($idUser,$password,true);
+                    $data = $jwt_auth->signup($idUser,$password,true);
                 }
             } else {
                 $data = array(
@@ -52,6 +54,6 @@ class DefaultController extends Controller
                             );
             }
         } 
-        return $helper->json($data);
+        return $helpers->json($data);
     } 
 }

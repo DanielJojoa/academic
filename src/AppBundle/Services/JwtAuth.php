@@ -14,7 +14,7 @@ class JwtAuth
     public function signup($iduser,$password, $getHash = null)
     {   
          $user = $this->manager->getRepository('BackendBundle:User')->findOneBy(array(
-        "id_user" => $iduser,
+        "idUser" => $iduser,
         "password" =>$password
     ));
     $signup  = false;
@@ -30,7 +30,7 @@ class JwtAuth
                 "rol" => $user->getRol(),
                 "lastname" => $user->getLastname(),
                 "mail" => $user->getMail(),
-                "cod_int_usr" => $user->getCodIntUsr(),
+                "cod_int_usr" => $user->getIdIntUsr(),
                 "exp" => time()+(7*24*60*60)
 
             );
@@ -47,7 +47,8 @@ class JwtAuth
         }else{
             $data = array (
                 "status"=> "error",
-                "user" => "Login Failed"
+                "user" => "Login Failed",
+                "dasta" => $iduser." ".$password
         
             );
         }
