@@ -42,7 +42,7 @@ class UserController extends Controller{
                 $user->setRol($rol);
                 $user->setName($name);
                 $user->setLastname($lname);
-                var_dump($user);
+                
                 if($password != null){
                     $pwd = hash('sha256',$password);
                     $user->setPassword($pwd);
@@ -71,8 +71,6 @@ class UserController extends Controller{
 
                 
             }
-
-
         }
         return $helpers->json($data);
     }
@@ -87,9 +85,7 @@ class UserController extends Controller{
             //entity manager
             $em = $this->getDoctrine()->getManager();
             $identity = $jwt_auth->checkToken($token,true);
-
-            $user = $em->getRepository('BackendBundle:User')->findOneBy(array('id'=> $identity->sub));
-
+            $user = $em->getRepository('BackendBundle:User')->findOneBy(array('mail'=> $identity->mail));
             $json = $request->get('json',null);
             $params = json_decode($json);
         
@@ -101,26 +97,27 @@ class UserController extends Controller{
             );
 
         if($json != null){
-            $createdAt =new \Datetime("now");
-            $role = 'user';
-            
-            $email = (isset($params->email)) ? $params->email : null;
-            $name = (isset($params->name)) ? $params->name : null;
-            $surename = (isset($params->surename)) ? $params->surename : null;
+                        
+            $intusr   = (isset($params->idintusr)) ? $params->idintusr : null;
+            $iduser   = (isset($params->iduser)) ? $params->iduser : null;
+            $email    = (isset($params->email)) ? $params->email : null;
+            $name     = (isset($params->name)) ? $params->name : null;
+            $lname    = (isset($params->lname)) ? $params->lname : null;
             $password = (isset($params->password)) ? $params->password : null;
+            $rol      = (isset($params->rol)) ? $params->rol : null;
             
 
             $emailConstraint = new Assert\Email();
             $emailConstraint->message = "This mail is not valid ¡¡";
             $validate_email = $this->get('validator')->validate($email,$emailConstraint);
             
-            if($email != null && count($validate_email) == 0  &&  $name != null && $surename != null ){
+            if($email != null && count($validate_email) == 0  &&  $name != null && $lname != null ){
                 
-                $user->setCreatedAt($createdAt);
-                $user->setRole($role);
-                $user->setEmail($email);
+                $user->setIdUser($iduser);
+                $user->setMail($email);
+                $user->setRol($rol);
                 $user->setName($name);
-                $user->setSurname($surename);
+                $user->setLastname($lname);
 
                 if($password != null){
                     $pwd = hash('sha256',$password);
@@ -128,9 +125,9 @@ class UserController extends Controller{
                 }
 
                 $em = $this->getDoctrine()->getManager();
-                $isset_user = $em->getRepository('BackendBundle:User')->findBy(array("email"=> $email));
-
-                if (count($isset_user) == 0 || $identity->email == $email){
+                $isset_user = $em->getRepository('BackendBundle:User')->findBy(array("mail"=> $email));
+                var_dump($identity);
+                if (count($isset_user) == 0 || $identity->cod_int_usr == $user->getIdIntUsr()){
                     $em->persist($user);
                     $em->flush();
                     $data = array(
